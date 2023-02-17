@@ -1,0 +1,5 @@
+homepage: "https://paplea.com/"
+documentation: nothing
+versions:
+  - sha: 4844d5c18a0fe40ef1d0a3ccbdaaeb9d7fa1df21
+    changeNotes: Initial release.
