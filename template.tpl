@@ -14,7 +14,6 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "パッとブライダルGAクロスドメイン用タグ",
-  "categories": ["ANALYTICS"],
   "brand": {
     "id": "brand_dummy",
     "displayName": "",
@@ -30,19 +29,6 @@ ___INFO___
 ___TEMPLATE_PARAMETERS___
 
 [
-  {
-    "type": "TEXT",
-    "name": "connectUrl",
-    "displayName": "パッとコネクトのURL",
-    "simpleValueType": true,
-    "valueHint": "https://mysite.official-wedding.net/",
-    "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      }
-    ],
-    "alwaysInSummary": false
-  },
   {
     "type": "GROUP",
     "name": "GA4Group",
@@ -67,32 +53,6 @@ ___TEMPLATE_PARAMETERS___
         "alwaysInSummary": true
       }
     ]
-  },
-  {
-    "type": "GROUP",
-    "name": "UAGroup",
-    "displayName": "UA",
-    "groupStyle": "ZIPPY_OPEN",
-    "subParams": [
-      {
-        "type": "TEXT",
-        "name": "uaId",
-        "displayName": "UAから始まるID",
-        "simpleValueType": true,
-        "valueHint": "UA-XXXXXXX-X",
-        "alwaysInSummary": true,
-        "valueValidators": [
-          {
-            "type": "REGEX",
-            "args": [
-              "UA.*"
-            ],
-            "errorMessage": "UAから始まるIDを入力してください。",
-            "enablingConditions": []
-          }
-        ]
-      }
-    ]
   }
 ]
 
@@ -102,10 +62,8 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const injectScript = require('injectScript');
 
 // クロスドメイン用jsのURLを生成。挿入。
-let connectUrl = '';
-if (data.connectUrl) connectUrl = data.connectUrl + 'js/cdm.js';
+let connectUrl = 'https://crossdomain.official-wedding.net/js/cdm.js';
 injectScript(connectUrl);
-
 
 const createArgumentsQueue = require('createArgumentsQueue');
 const createQueue = require('createQueue');
@@ -325,6 +283,6 @@ scenarios: []
 
 ___NOTES___
 
-Created on 2023/2/17 11:11:37
+Created on 2024/5/16 16:15:25
 
 
